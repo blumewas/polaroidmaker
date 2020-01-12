@@ -1,5 +1,7 @@
 # polaroidmaker
 
+This is a small project, to convert your jpeg/png Images in polaroid style images for own print.
+
 ## Usage
 
 ## Instagram.CSS
