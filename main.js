@@ -43,23 +43,21 @@ function readURL(input) {
   }
 }
 
-function dowloadImage() {     
+function saveImage() {     
   const img = canvas.toDataURL("image/jpeg");   
   
-  const download = document.createElement('a');
+  const save = document.createElement('a');
 
-  download.download = "image.png";
-  download.href = img.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
+  save.download = "image.png";
+  save.href = img.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
 
-  download.click();
+  save.click();
 }
 
 function onChange(event) {
   const fil = event.target.value;
   filterElem.classList.replace(filter, `filter-${fil}`);
   filter = `filter-${fil}`;
-  
-  filterElem.innerText = fil;
 
   changeFilter();
   drawImage();
@@ -119,6 +117,6 @@ window.onload = function () {
     }
   });
 
-  const btn = document.getElementById('download');
-  btn.addEventListener('click', dowloadImage);
+  const btn = document.getElementById('save');
+  btn.addEventListener('click', this.saveImage);
 }
