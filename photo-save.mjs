@@ -15,7 +15,7 @@ function downloadImage() {
 
 function saveImage(canvas) {
   const img = canvas.toDataURL("image/png");
-  imgs.push(img.replace(/^data:image\/[^;]/, 'data:application/octet-stream'));
+  imgs.push(img);
 
   console.log(imgs);
 }
