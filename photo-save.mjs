@@ -13,7 +13,6 @@ function downloadImage() {
     const imgObj = new Image();
     imgObj.onload = () => {
       ctx.drawImage(imgObj, startX, startY);
-      console.log(startY);
       startX += 337;
       if(startX >= 900) {
         startX = 0;
