@@ -22,7 +22,7 @@ function downloadImage() {
     };
     imgObj.src = img;
   }
-  const img = saveCanvas.toDataURL("image/jpeg");
+  const img = saveCanvas.toDataURL("image/png");
   
   const save = document.createElement('a');
 
