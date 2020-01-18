@@ -34,7 +34,6 @@ function saveImage(canvas) {
     startX = 0;
   }
 
-  document.body.appendChild(canvas);
   document.body.appendChild(saveCanvas);
 }
 
