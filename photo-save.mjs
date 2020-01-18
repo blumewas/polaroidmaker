@@ -25,7 +25,7 @@ function saveImage(canvas) {
     context.fillStyle = '#fff';
     context.fillRect(0, 0, 1205, 1795);
   }
-
+  console.log(canvas);
   //apply the old canvas to the new one
   context.drawImage(canvas, startX, startY);
   startX += 337;
