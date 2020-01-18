@@ -11,8 +11,8 @@ function downloadImage() {
 
   for(let img of imgs) {
     const imgObj = new Image();
-    image.onload = () => {
-      imgObj.drawImage(image, startX, startY);
+    imgObj.onload = () => {
+      ctx.drawImage(image, startX, startY);
 
       startX += 337;
       if(startX >= 900) {
