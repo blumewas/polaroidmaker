@@ -14,8 +14,6 @@ function downloadImage() {
 }
 
 function saveImage(canvas) {
-  console.log(canvas);
-
   if(!saveCanvas) {
     saveCanvas = document.createElement('canvas');
     context = saveCanvas.getContext('2d');
@@ -26,8 +24,13 @@ function saveImage(canvas) {
     context.fillStyle = '#fff';
     context.fillRect(0, 0, 1205, 1795);
   }
+  const img = new Image();
+  img.onload = function() {
+    context.drawImage(canvas, startX, startY);
+  };
+  img.src = canvas.toDataURL();
   //apply the old canvas to the new one
-  context.drawImage(canvas, startX, startY, canvas.width, canvas.height);
+  
   startX += 337;
   if(startX >= 1000) {
     startY += 403;
