@@ -1,3 +1,5 @@
+import * as photo from './photo-save.mjs';
+
 let canvas, ctx, filterElem;
 let filter = 'filter-normal';
 let img = undefined;
@@ -43,17 +45,6 @@ function readURL(input) {
   }
 }
 
-function saveImage() {     
-  const img = canvas.toDataURL("image/jpeg");   
-  
-  const save = document.createElement('a');
-
-  save.download = "image.png";
-  save.href = img.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
-
-  save.click();
-}
-
 function onChange(event) {
   const fil = event.target.value;
   filterElem.classList.replace(filter, `filter-${fil}`);
@@ -76,7 +67,7 @@ window.onload = function () {
   ctx.height = canvas.height = polaroidHeight;
   ctx.width = canvas.width = polaroidWidth;
 
-  ctx.fillStyle = '#a3a3a3';
+  ctx.fillStyle = '#000';
   ctx.fillRect(0, 0, polaroidWidth, polaroidHeight);
   ctx.fillStyle = '#fff';
   ctx.fillRect(1, 1, polaroidWidth-2, polaroidHeight-2);
@@ -118,5 +109,8 @@ window.onload = function () {
   });
 
   const btn = document.getElementById('save');
-  btn.addEventListener('click', this.saveImage);
+  btn.addEventListener('click', photo.saveImage);
+
+  const btn2 = document.getElementById('print');
+  btn2.addEventListener('click', photo.downloadImage);
 }
