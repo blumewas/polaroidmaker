@@ -28,7 +28,7 @@ function saveImage(canvas) {
   img.onload = function() {
     context.drawImage(canvas, startX, startY);
   };
-  img.src = canvas.toDataURL();
+  img.src = canvas.toDataURL("image/png");
   //apply the old canvas to the new one
   
   startX += 337;
