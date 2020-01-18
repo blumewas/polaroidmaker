@@ -3,11 +3,6 @@ import * as Drawer from './photo-drawer.mjs'
 
 let canvas, ctx, filterElem;
 let filter = 'filter-normal';
-let img = undefined;
-
-const size = 1000;
-let startX = 0;
-let startY = 0;
 
 const polaroidHeight = 403;
 const polaroidWidth = 336;
@@ -17,10 +12,6 @@ function showImage(event) {
   readURL(event.target.image);
 }
 
-function drawImage() {
-  ctx.drawImage(img, startX, startY, size, size, 20, 20, 298, 298);
-}
-
 function changeFilter() {
   const filterValue = window.getComputedStyle(filterElem).filter;
   ctx.filter = filterValue;
@@ -28,7 +19,7 @@ function changeFilter() {
 
 function onLoad() {
   changeFilter();
-  drawImage();
+  Drawer.drawImage();
 }
 
 function readURL(input) {
@@ -51,7 +42,7 @@ function onChange(event) {
   filter = `filter-${fil}`;
 
   changeFilter();
-  drawImage();
+  Drawer.drawImage();
 }
 
 window.onload = function () {

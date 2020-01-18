@@ -1,4 +1,10 @@
 let moveImg = false;
+let img = undefined;
+
+let startX = 0;
+let startY = 0;
+
+const size = 1000;
 
 function moveImage(event) {
   if(moveImg) {
@@ -27,4 +33,9 @@ function moveImage(event) {
   }
 }
 
-export {moveImage, moveImg};
+
+function drawImage(context) {
+  context.drawImage(img, startX, startY, size, size, 20, 20, 298, 298);
+}
+
+export {moveImage, moveImg, drawImage};
