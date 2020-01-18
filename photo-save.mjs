@@ -11,8 +11,14 @@ function downloadImage() {
 
   for(let img of imgs) {
     const imgObj = new Image();
-    image.onload = function() {
-      imgObj.drawImage(image, 0, 0);
+    image.onload = () => {
+      imgObj.drawImage(image, startX, startY);
+
+      startX += 337;
+      if(startX >= 900) {
+        startX = 0;
+        startY += 404;
+      }
     };
     imgObj.src = img;
   }
