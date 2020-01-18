@@ -37,11 +37,11 @@ window.onload = function () {
   ctx.fillRect(1, 1, polaroidWidth-2, polaroidHeight-2);
 
   canvas.addEventListener('mousedown', () => {
-    Drawer.toggleMove();
+    Drawer.toggleMove(true);
   });
 
   window.addEventListener('mouseup', () => {
-    Drawer.toggleMove();
+    Drawer.toggleMove(false);
   });
 
   canvas.addEventListener('mousemove', (event) => {

@@ -66,11 +66,11 @@ function moveImage(event) {
   }
 }
 
-function toggleMove() {
+function toggleMove(move) {
   if(!img) {
     return;
   }
-  moveImg = !moveImg;
+  moveImg = move;
 }
 
 function drawImage() {
