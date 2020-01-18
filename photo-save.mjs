@@ -7,16 +7,16 @@ function downloadImage() {
   let startX = 0;
   let startY = 0;
 
-  saveCanvas.width = ctx.width = 1205;
-  saveCanvas.height = ctx.height = 1795;
+  saveCanvas.width = ctx.width = 674;
+  saveCanvas.height = ctx.height = 1011;
 
   for(let img of imgs) {
     loadImage(img).then(image => {
       ctx.drawImage(image, startX, startY, 336, 403);
-      startX += 337;
-      if(startX >= 900) {
+      startX += 336;
+      if(startX >= 336*2) {
         startX = 0;
-        startY += 404;
+        startY += 403;
       }
     });
   }
