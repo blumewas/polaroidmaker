@@ -1,9 +1,9 @@
 import * as Photo from './photo-save.mjs';
+import * as Drawer from './photo-drawer.mjs'
 
 let canvas, ctx, filterElem;
 let filter = 'filter-normal';
 let img = undefined;
-let moveImg = false;
 
 const size = 1000;
 let startX = 0;
@@ -74,38 +74,15 @@ window.onload = function () {
   filterElem = document.getElementById('currFilter');
 
   canvas.addEventListener('mousedown', () => {
-    moveImg = true;
+    Drawer.moveImg = true;
   });
 
   window.addEventListener('mouseup', () => {
-    moveImg = false;
+    Drawer.moveImg = false;
   });
 
   canvas.addEventListener('mousemove', (event) => {
-    if(moveImg) {
-      const moveX = event.movementX;
-      const moveY = event.movementY;
-
-      startX += moveX;
-      startY += moveY;
-
-      if(startX < 0) {
-        startX = 0;
-      }
-      if(startY < 0) {
-        startY = 0;
-      }
-
-      const endX = startX + size;
-      const endY = startY + size;
-      if(endX > img.width) {
-        startX = img.width - size;
-      }
-      if (endY > img.height) {
-        startY = img.height - size;
-      }
-      drawImage();
-    }
+    Drawer.moveImage(event);
   });
 
   const btn = document.getElementById('save');
