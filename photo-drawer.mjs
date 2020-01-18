@@ -6,7 +6,7 @@ let startY = 0;
 
 const size = 1000;
 
-let filterElemcanvas, ctx;
+let filterElem, canvas, ctx;
 let filter = 'filter-normal';
 
 function readURL(input) {
