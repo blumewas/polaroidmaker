@@ -14,8 +14,7 @@ function downloadImage() {
 }
 
 function saveImage(canvas) {
-  console.log('Save Start');
-  console.log(saveCanvas);
+  console.log(canvas);
 
   if(!saveCanvas) {
     saveCanvas = document.createElement('canvas');
