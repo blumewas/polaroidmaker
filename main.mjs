@@ -27,9 +27,9 @@ function readURL(input) {
       const reader = new FileReader();
 
       reader.onload = (e) => {
-        img = new Image();
-        img.src = e.target.result;
-        img.onload = onLoad();
+        Drawer.img = new Image();
+        Drawer.img.src = e.target.result;
+        Drawer.img.onload = onLoad();
       };
 
       reader.readAsDataURL(input.files[0]);

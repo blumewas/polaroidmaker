@@ -38,4 +38,4 @@ function drawImage(context) {
   context.drawImage(img, startX, startY, size, size, 20, 20, 298, 298);
 }
 
-export {moveImage, moveImg, drawImage};
+export {moveImage, moveImg, drawImage, img};
