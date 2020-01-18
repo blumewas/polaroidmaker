@@ -1,4 +1,4 @@
-import * as photo from './photo-save.mjs';
+import * as Photo from './photo-save.mjs';
 
 let canvas, ctx, filterElem;
 let filter = 'filter-normal';
@@ -109,8 +109,8 @@ window.onload = function () {
   });
 
   const btn = document.getElementById('save');
-  btn.addEventListener('click', photo.saveImage(canvas));
+  btn.addEventListener('click', Photo.saveImage(canvas));
 
   const btn2 = document.getElementById('print');
-  btn2.addEventListener('click', photo.downloadImage);
+  btn2.addEventListener('click', Photo.downloadImage);
 }
