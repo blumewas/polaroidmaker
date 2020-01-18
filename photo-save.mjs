@@ -10,26 +10,24 @@ function downloadImage() {
   saveCanvas.height = ctx.height = 1795;
 
   for(let img of imgs) {
-    const imgObj = new Image();
-    imgObj.onload = () => {
-      ctx.drawImage(imgObj, startX, startY);
+    loadImage(img).then(image => {
+      ctx.drawImage(image, startX, startY);
       startX += 337;
       if(startX >= 900) {
         startX = 0;
         startY += 404;
       }
-      document.body.appendChild(imgObj);
-    };
-    imgObj.src = img;
-  }
-  const img = saveCanvas.toDataURL("image/png");
+    }).then(() => {
+      const img = saveCanvas.toDataURL("image/png");
   
-  const save = document.createElement('a');
-
-  save.download = "image.png";
-  save.href = img.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
-
-  save.click();
+      const save = document.createElement('a');
+    
+      save.download = "image.png";
+      save.href = img.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
+    
+      save.click();
+    });
+  }
 }
 
 function saveImage(canvas) {
@@ -38,5 +36,14 @@ function saveImage(canvas) {
 
   console.log(imgs);
 }
+
+const loadImage = url => {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = () => reject(new Error(`load ${url} fail`));
+    img.src = url;
+  });
+};
 
 export {saveImage, downloadImage};
