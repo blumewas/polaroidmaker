@@ -109,7 +109,7 @@ window.onload = function () {
   });
 
   const btn = document.getElementById('save');
-  btn.addEventListener('click', photo.saveImage);
+  btn.addEventListener('click', photo.saveImage(canvas));
 
   const btn2 = document.getElementById('print');
   btn2.addEventListener('click', photo.downloadImage);
