@@ -1,7 +1,7 @@
 let imgs = [];
 
 function downloadImage() {
-  const saveCanvas = document.getElementById('saveCanvas');
+  const saveCanvas = document.createElement('canvas');
   const ctx = saveCanvas.getContext('2d');
 
   let startX = 0;
@@ -12,7 +12,6 @@ function downloadImage() {
 
   for(let img of imgs) {
     loadImage(img).then(image => {
-      document.body.appendChild(image);
       ctx.drawImage(image, startX, startY, 336, 403);
       startX += 337;
       if(startX >= 900) {
@@ -20,16 +19,18 @@ function downloadImage() {
         startY += 404;
       }
     });
-      // const img = saveCanvas.toDataURL("image/png");
-  
-      // const save = document.createElement('a');
-    
-      // save.download = "image.png";
-      // save.href = img.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
-    
-      // save.click();
-
   }
+
+  window.setTimeout(() => {
+    const img = saveCanvas.toDataURL("image/jpeg");
+  
+    const save = document.createElement('a');
+    
+    save.download = "image.jpeg";
+    save.href = img.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
+    
+    save.click();
+  }, 5000);
 }
 
 function saveImage(canvas) {
