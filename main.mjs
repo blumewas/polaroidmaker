@@ -9,7 +9,7 @@ const polaroidWidth = 336;
 
 function showImage(event) {
   event.preventDefault();
-  readURL(event.target.image);
+  Drawer.readURL(event.target.image);
 }
 
 function changeFilter() {
@@ -20,20 +20,6 @@ function changeFilter() {
 function onLoad() {
   changeFilter();
   Drawer.drawImage(ctx);
-}
-
-function readURL(input) {
-  if (input.files && input.files[0]) {
-      const reader = new FileReader();
-
-      reader.onload = (e) => {
-        Drawer.img = new Image();
-        Drawer.img.src = e.target.result;
-        Drawer.img.onload = onLoad();
-      };
-
-      reader.readAsDataURL(input.files[0]);
-  }
 }
 
 function onChange(event) {
@@ -65,11 +51,11 @@ window.onload = function () {
   filterElem = document.getElementById('currFilter');
 
   canvas.addEventListener('mousedown', () => {
-    Drawer.moveImg = true;
+    Drawer.toggleMove();
   });
 
   window.addEventListener('mouseup', () => {
-    Drawer.moveImg = false;
+    Drawer.toggleMove();
   });
 
   canvas.addEventListener('mousemove', (event) => {
