@@ -27,7 +27,7 @@ function saveImage(canvas) {
     context.fillRect(0, 0, 1205, 1795);
   }
   //apply the old canvas to the new one
-  context.drawImage(canvas, startX, startY);
+  context.drawImage(canvas, startX, startY, canvas.width, canvas.height);
   startX += 337;
   if(startX >= 1000) {
     startY += 403;
