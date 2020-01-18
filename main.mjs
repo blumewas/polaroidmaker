@@ -19,7 +19,7 @@ function changeFilter() {
 
 function onLoad() {
   changeFilter();
-  Drawer.drawImage();
+  Drawer.drawImage(ctx);
 }
 
 function readURL(input) {
@@ -42,7 +42,7 @@ function onChange(event) {
   filter = `filter-${fil}`;
 
   changeFilter();
-  Drawer.drawImage();
+  Drawer.drawImage(ctx);
 }
 
 window.onload = function () {
