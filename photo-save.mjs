@@ -11,6 +11,7 @@ function downloadImage() {
 
   for(let img of imgs) {
     loadImage(img).then(image => {
+      document.body.appendChild(image);
       ctx.drawImage(image, startX, startY);
       startX += 337;
       if(startX >= 900) {
@@ -33,8 +34,6 @@ function downloadImage() {
 function saveImage(canvas) {
   const img = canvas.toDataURL("image/png");
   imgs.push(img);
-
-  console.log(imgs);
 }
 
 const loadImage = url => {
