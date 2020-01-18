@@ -7,6 +7,7 @@ let startY = 0;
 const size = 1000;
 
 let filterElem;
+let filter = 'filter-normal';
 
 function readURL(input) {
   if (input.files && input.files[0]) {
@@ -23,9 +24,11 @@ function readURL(input) {
 }
 
 function changeFilter(event) {
-  const fil = event.target.value;
-  filterElem.classList.replace(filter, `filter-${fil}`);
-  filter = `filter-${fil}`;
+  if(event) {
+    const fil = event.target.value;
+    filterElem.classList.replace(filter, `filter-${fil}`);
+    filter = `filter-${fil}`;
+  }
 
   const filterValue = window.getComputedStyle(filterElem).filter;
   ctx.filter = filterValue;
@@ -64,6 +67,9 @@ function moveImage(event) {
 }
 
 function toggleMove() {
+  if(!img) {
+    return;
+  }
   moveImg = !moveImg;
 }
 

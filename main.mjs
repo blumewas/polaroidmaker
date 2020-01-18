@@ -2,7 +2,6 @@ import * as Photo from './photo-save.mjs';
 import * as Drawer from './photo-drawer.mjs'
 
 let canvas, ctx;
-let filter = 'filter-normal';
 
 const polaroidHeight = 403;
 const polaroidWidth = 336;
