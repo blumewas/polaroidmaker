@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap');
 
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 h1 {
   font-family: 'Amatic SC', cursive;
 }
