@@ -6,6 +6,8 @@ let startY = 0;
 
 const size = 1000;
 
+let filterElem;
+
 function readURL(input) {
   if (input.files && input.files[0]) {
       const reader = new FileReader();
@@ -18,6 +20,20 @@ function readURL(input) {
 
       reader.readAsDataURL(input.files[0]);
   }
+}
+
+function changeFilter(event) {
+  const fil = event.target.value;
+  filterElem.classList.replace(filter, `filter-${fil}`);
+  filter = `filter-${fil}`;
+
+  const filterValue = window.getComputedStyle(filterElem).filter;
+  ctx.filter = filterValue;
+}
+
+function onLoad() {
+  changeFilter();
+  Drawer.drawImage(ctx);
 }
 
 function moveImage(event) {
@@ -55,4 +71,8 @@ function drawImage(context) {
   context.drawImage(img, startX, startY, size, size, 20, 20, 298, 298);
 }
 
-export {moveImage, drawImage, readURL, toggleMove };
+function init () {
+  filterElem = document.getElementById('currFilter');
+}
+
+export {moveImage, drawImage, readURL, toggleMove, init, changeFilter };
