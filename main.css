@@ -12,7 +12,7 @@ body {
 }
 
 h1 {
-  margin-top: 10px;
+  margin-bottom: 10px;
   text-align: center;
   font-family: 'Amatic SC', cursive;
   font-size: 2rem;
@@ -31,6 +31,7 @@ canvas {
   margin: 0 auto;
   background-color: #ffe;
   height: 100%;
+  padding-top: 10px;
 }
 
 #saveCanvas {
@@ -40,7 +41,6 @@ canvas {
 #imgContainer {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
 }
 
 .formContainer {
