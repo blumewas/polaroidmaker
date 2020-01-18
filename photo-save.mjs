@@ -11,11 +11,10 @@ function downloadImage() {
   save.href = img.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
 
   save.click();
-
-  console.log('Download');
 }
 
 function saveImage(canvas) {
+  console.log('Save Start');
   if(!saveCanvas) {
     saveCanvas = document.createElement('canvas');
     context = saveCanvas.getContext('2d');
@@ -35,7 +34,7 @@ function saveImage(canvas) {
     startX = 0;
   }
 
-  console.log('Save');
+  console.log('Save End');
 }
 
 export {saveImage, downloadImage};
