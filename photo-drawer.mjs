@@ -23,11 +23,10 @@ function readURL(input) {
   }
 }
 
-function changeFilter(event) {
-  if(event) {
-    const fil = event.target.value;
-    filterElem.classList.replace(filter, `filter-${fil}`);
-    filter = `filter-${fil}`;
+function changeFilter(filterVal) {
+  if(filterVal) {
+    filterElem.classList.replace(filter, `filter-${filterVal}`);
+    filter = `filter-${filterVal}`;
   }
 
   const filterValue = window.getComputedStyle(filterElem).filter;
@@ -35,7 +34,7 @@ function changeFilter(event) {
 }
 
 function onLoad() {
-  changeFilter();
+  changeFilter('normal');
   drawImage();
 }
 

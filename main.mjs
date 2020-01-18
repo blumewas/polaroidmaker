@@ -11,11 +11,6 @@ function showImage(event) {
   Drawer.readURL(event.target.image);
 }
 
-function onChange(event) {
-  Drawer.changeFilter(event);
-  Drawer.drawImage();
-}
-
 function clearCanvas() {
   ctx.fillStyle = '#000';
   ctx.fillRect(0, 0, polaroidWidth, polaroidHeight);
@@ -30,7 +25,9 @@ window.onload = function () {
   form.addEventListener('submit', showImage);
 
   const filterSelect = document.getElementById('filterSelect');
-  filterSelect.onchange = this.onChange;
+  filterSelect.onchange = (event) => {
+    Drawer.changeFilter(event.target.value);
+  };
 
   canvas = document.getElementById("canvas");
   ctx = canvas.getContext("2d");
