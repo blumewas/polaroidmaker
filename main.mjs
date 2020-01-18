@@ -13,7 +13,7 @@ function showImage(event) {
 
 function onChange(event) {
   Drawer.changeFilter(event);
-  Drawer.drawImage(ctx);
+  Drawer.drawImage();
 }
 
 window.onload = function () {

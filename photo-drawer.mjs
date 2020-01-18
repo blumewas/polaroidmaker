@@ -6,7 +6,7 @@ let startY = 0;
 
 const size = 1000;
 
-let filterElem;
+let filterElemcanvas, ctx;
 let filter = 'filter-normal';
 
 function readURL(input) {
@@ -36,7 +36,7 @@ function changeFilter(event) {
 
 function onLoad() {
   changeFilter();
-  Drawer.drawImage(ctx);
+  Drawer.drawImage();
 }
 
 function moveImage(event) {
@@ -73,12 +73,14 @@ function toggleMove() {
   moveImg = !moveImg;
 }
 
-function drawImage(context) {
-  context.drawImage(img, startX, startY, size, size, 20, 20, 298, 298);
+function drawImage() {
+  ctx.drawImage(img, startX, startY, size, size, 20, 20, 298, 298);
 }
 
 function init () {
   filterElem = document.getElementById('currFilter');
+  canvas = document.getElementById("canvas");
+  ctx = canvas.getContext("2d");
 }
 
 export {moveImage, drawImage, readURL, toggleMove, init, changeFilter };
