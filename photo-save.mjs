@@ -1,10 +1,11 @@
-let startX, startY = 0;
-
 let imgs = [];
 
 function downloadImage() {
   const saveCanvas = document.getElementById('saveCanvas');
   const ctx = saveCanvas.getContext('2d');
+
+  let startX = 0;
+  let startY = 0;
 
   saveCanvas.width = ctx.width = 1205;
   saveCanvas.height = ctx.height = 1795;
