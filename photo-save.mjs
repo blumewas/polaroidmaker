@@ -12,6 +12,7 @@ function downloadImage() {
   for(let img of imgs) {
     loadImage(img).then(image => {
       document.body.appendChild(image);
+      console.log(ctx);
       ctx.drawImage(image, startX, startY);
       startX += 337;
       if(startX >= 900) {

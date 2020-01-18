@@ -31,6 +31,8 @@ function changeFilter(filterVal) {
 
   const filterValue = window.getComputedStyle(filterElem).filter;
   ctx.filter = filterValue;
+
+  drawImage();
 }
 
 function onLoad() {
@@ -80,9 +82,6 @@ function init () {
   filterElem = document.getElementById('currFilter');
   canvas = document.getElementById("canvas");
   ctx = canvas.getContext("2d");
-
-  console.log('init');
-  console.log(ctx);
 }
 
 export {moveImage, drawImage, readURL, toggleMove, init, changeFilter };
