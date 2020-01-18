@@ -2,8 +2,19 @@ let startX, startY = 0;
 
 let imgs = [];
 
-function downloadImage() {     
-  const img = saveCanvas.toDataURL("image/jpeg");   
+function downloadImage() {
+  const saveCanvas = document.getElementById('saveCanvas');
+  const ctx = saveCanvas.getContext('2d');
+
+  saveCanvas.width = ctx.width = 1205;
+  saveCanvas.height = ctx.height = 1795;
+
+  for(let img of imgs) {
+    const imgObj = new Image();
+    imgObj.src = img;
+    ctx.drawImage(imgObj, startX, startY);
+  }
+  const img = saveCanvas.toDataURL("image/jpeg");
   
   const save = document.createElement('a');
 
