@@ -11,8 +11,10 @@ function downloadImage() {
 
   for(let img of imgs) {
     const imgObj = new Image();
+    image.onload = function() {
+      imgObj.drawImage(image, 0, 0);
+    };
     imgObj.src = img;
-    ctx.drawImage(imgObj, startX, startY);
   }
   const img = saveCanvas.toDataURL("image/jpeg");
   
