@@ -16,6 +16,13 @@ function onChange(event) {
   Drawer.drawImage();
 }
 
+function clearCanvas() {
+  ctx.fillStyle = '#000';
+  ctx.fillRect(0, 0, polaroidWidth, polaroidHeight);
+  ctx.fillStyle = '#fff';
+  ctx.fillRect(1, 1, polaroidWidth-2, polaroidHeight-2);
+}
+
 window.onload = function () {
   Drawer.init();
 
@@ -31,10 +38,7 @@ window.onload = function () {
   ctx.height = canvas.height = polaroidHeight;
   ctx.width = canvas.width = polaroidWidth;
 
-  ctx.fillStyle = '#000';
-  ctx.fillRect(0, 0, polaroidWidth, polaroidHeight);
-  ctx.fillStyle = '#fff';
-  ctx.fillRect(1, 1, polaroidWidth-2, polaroidHeight-2);
+  clearCanvas();
 
   canvas.addEventListener('mousedown', () => {
     Drawer.toggleMove(true);
@@ -51,6 +55,7 @@ window.onload = function () {
   const btn = document.getElementById('save');
   btn.addEventListener('click', () => {
     Photo.saveImage(canvas);
+    clearCanvas();
   });
 
   const btn2 = document.getElementById('print');

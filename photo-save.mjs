@@ -1,6 +1,6 @@
-let saveCanvas, context;
-
 let startX, startY = 0;
+
+let imgs = [];
 
 function downloadImage() {     
   const img = saveCanvas.toDataURL("image/jpeg");   
@@ -14,30 +14,10 @@ function downloadImage() {
 }
 
 function saveImage(canvas) {
-  if(!saveCanvas) {
-    saveCanvas = document.createElement('canvas');
-    context = saveCanvas.getContext('2d');
+  const img = canvas.toDataURL("image/png");
+  imgs.push(img.replace(/^data:image\/[^;]/, 'data:application/octet-stream'));
 
-    saveCanvas.width = context.width = 1205;
-    saveCanvas.height = context.height = 1795;
-
-    context.fillStyle = '#fff';
-    context.fillRect(0, 0, 1205, 1795);
-  }
-  const img = new Image();
-  img.onload = function() {
-    context.drawImage(canvas, startX, startY);
-  };
-  img.src = canvas.toDataURL("image/png");
-  //apply the old canvas to the new one
-  
-  startX += 337;
-  if(startX >= 1000) {
-    startY += 403;
-    startX = 0;
-  }
-
-  document.body.appendChild(saveCanvas);
+  console.log(imgs);
 }
 
 export {saveImage, downloadImage};
