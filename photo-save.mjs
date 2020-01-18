@@ -12,6 +12,8 @@ export default {
     save.href = img.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
   
     save.click();
+
+    console.log('Download');
   },
   
   saveImage(canvas) {
@@ -33,5 +35,7 @@ export default {
       startY += 403;
       startX = 0;
     }
+
+    console.log('Save');
   }
 };
