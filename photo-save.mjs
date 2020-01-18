@@ -17,16 +17,16 @@ function downloadImage() {
         startX = 0;
         startY += 404;
       }
-    }).then(() => {
-      const img = saveCanvas.toDataURL("image/png");
-  
-      const save = document.createElement('a');
-    
-      save.download = "image.png";
-      save.href = img.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
-    
-      save.click();
     });
+      // const img = saveCanvas.toDataURL("image/png");
+  
+      // const save = document.createElement('a');
+    
+      // save.download = "image.png";
+      // save.href = img.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
+    
+      // save.click();
+
   }
 }
 
