@@ -36,7 +36,7 @@ function changeFilter(event) {
 
 function onLoad() {
   changeFilter();
-  Drawer.drawImage();
+  drawImage();
 }
 
 function moveImage(event) {
