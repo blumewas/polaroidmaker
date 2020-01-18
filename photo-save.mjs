@@ -32,7 +32,7 @@ function downloadImage() {
 }
 
 function saveImage(canvas) {
-  const img = canvas.toDataURL("image/png");
+  const img = canvas.toDataURL("image/jpeg");
   imgs.push(img);
 }
 
