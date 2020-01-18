@@ -19,6 +19,7 @@ function downloadImage() {
         startX = 0;
         startY += 404;
       }
+      document.body.appendChild(imgObj);
     };
     imgObj.src = img;
   }
