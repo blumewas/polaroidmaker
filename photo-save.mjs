@@ -35,7 +35,7 @@ function saveImage(canvas) {
     startX = 0;
   }
 
-  console.log('Save End');
+  document.body.appendChild(saveCanvas);
 }
 
 export {saveImage, downloadImage};
