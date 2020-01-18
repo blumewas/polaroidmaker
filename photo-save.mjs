@@ -24,7 +24,7 @@ function saveImage(canvas) {
     saveCanvas.height = context.height = 1795;
 
     context.fillStyle = '#fff';
-    ctx.fillRect(0, 0, 1205, 1795);
+    context.fillRect(0, 0, 1205, 1795);
   }
 
   //apply the old canvas to the new one
